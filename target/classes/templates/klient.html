@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Клиенты</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="bloki/header :: header"></header>
+<main>
+    <div class="container mt-5">
+        <h1>Список клиентов</h1>
+        <div class="container mt-5 mb-5">
+            <form action="/klient" method="post">
+                <input type="text" name="FIO" placeholder="ФИО" class="form-control"><br>
+                <input type="text" name="mail" placeholder="mail" class="form-control"><br>
+                <input type="text" name="phone" placeholder="phone" class="form-control"><br>
+                <input type="text" name="passport" placeholder="passport" class="form-control"><br>
+                <button type="submit" class="btn btn-success">добавить</button>
+            </form>
+        </div>
+
+
+        <div th:each="el : ${klients}" >
+            <h3 th:text="FIO"></h3>
+            <p th:text="mail"></p>
+            <p th:text="phone"></p>
+            <p th:text="passport"></p>
+        </div>
+    </div>
+
+
+</main>
+
+</body>
+</html>
