@@ -17,11 +17,13 @@ public class Credit {
     /**
      * Кредитный лимит
      */
+    @Column(name = "limit")
     Long limit;
 
     /**
      * Процентная ставка
      */
+    @Column(name = "interest_rate")
     Double interestRate;
 
 }

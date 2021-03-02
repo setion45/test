@@ -6,6 +6,7 @@ import com.goverdovsky.bank.entity.CreditOffer;
 import com.goverdovsky.bank.entity.PaymentPlan;
 import com.goverdovsky.bank.model.MonthPayment;
 import com.goverdovsky.bank.repository.CreditOfferRepository;
+import com.goverdovsky.bank.repository.CreditRepository;
 import com.goverdovsky.bank.repository.PaymentPlanRepository;
 import com.goverdovsky.bank.service.CreditService;
 import com.goverdovsky.bank.utils.CreditCalculationUtils;
@@ -20,7 +21,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class CreditServiceImpl implements CreditService {
-
+    @Autowired
+    CreditRepository creditRepository;
     @Autowired
     CreditOfferRepository creditOfferRepository;
 
@@ -58,6 +60,12 @@ public class CreditServiceImpl implements CreditService {
                     plan.setCreditOffer(offer);
                     return plan;
                 }).collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Credit> getList() {
+        return creditRepository.findAll();
     }
 
 }

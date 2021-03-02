@@ -21,12 +21,12 @@
             <th>Кредитный лимит</th>
             <th>Процентная ставка</th>
         </tr>
-        <c:forEach items="${clients}" var="client">
-            <tr onclick="document.location='/credit/info/${client.id}'">
-                <td><c:out value="${client.id}"/></td>
-                <td><c:out value="${client.limit}"/></td>
-                <td><c:out value="${client.interestRate}"/></td>
-            </tr>
+        <c:forEach items="${credits}" var="credit">
+<%--            <tr onclick="document.location='/credit/info/${credits.id}'">--%>
+<%--                <td><c:out value="${credits.id}"/></td>--%>
+                <td><c:out value="${credits.limit}"/></td>
+                <td><c:out value="${credits.interestRate}"/></td>
+<%--            </tr>--%>
         </c:forEach>
     </table>
 </div>
