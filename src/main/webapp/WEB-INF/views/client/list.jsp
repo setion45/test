@@ -24,6 +24,8 @@
                 </tr>
         </c:forEach>
     </table>
+    <a href="/client/add">Добавить</a>
+    <a href="/credit/list">Список кредитов</a>
 </div>
 
 </body>

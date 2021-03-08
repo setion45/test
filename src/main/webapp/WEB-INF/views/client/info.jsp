@@ -18,6 +18,9 @@
     <form:input path="passportNumber"       value="${client.passportNumber}"    /><br/>
     <input type="submit" value="Сохранить"/>
 </form:form>
+<form:form method="POST" action="/client/info/${client.id}/remove">
+    <input type="submit" value="удалить"/>
+</form:form>
 <a href="/">На главную</a>
 </body>
 </html>

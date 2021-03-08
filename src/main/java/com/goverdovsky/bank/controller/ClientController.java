@@ -1,6 +1,7 @@
 package com.goverdovsky.bank.controller;
 
 import com.goverdovsky.bank.entity.Client;
+import com.goverdovsky.bank.exception.IdFoundException;
 import com.goverdovsky.bank.exception.IdNotFoundException;
 import com.goverdovsky.bank.service.ClientService;
 import lombok.Data;
@@ -42,6 +43,33 @@ public class ClientController {
         }
         return "redirect:/client/info/" + client.getId();
     }
+    @GetMapping(path = "/add")
+    public String orderClient(@ModelAttribute("client") Client client) {
+//        model.addAttribute("clients", clientService.getList());
+        return "/client/add.jsp";
+    }
+    @PostMapping(path = "/add")
+    public String addClient(Client client) {
+        try {
+            clientService.add(client);
+        } catch (IdFoundException e) {
+            e.printStackTrace();
+        }
+        return "redirect:/";
+    }
+    @PostMapping(path = "/info/{id}/remove")
+    public String removeClient(@PathVariable(value = "id") Long id, Model model) {
+        try {
+            clientService.remove(id);
+        } catch (IdNotFoundException e) {
+            e.printStackTrace();
+        }
+        return "redirect:/";
+    }
+
+
+
+
 
     @Data
     public static class ListContainer {
