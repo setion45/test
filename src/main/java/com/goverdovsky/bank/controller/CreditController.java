@@ -30,20 +30,20 @@ public class CreditController {
         return "/credit/credit.jsp";
     }
 
-    @GetMapping(path = "/add")
-    public String orderClient(@ModelAttribute("client") Client client) {
-//        model.addAttribute("clients", clientService.getList());
-        return "/client/add.jsp";
-    }
-    @PostMapping(path = "/add")
-    public String addClient(Client client) {
-        try {
-            clientService.add(client);
-        } catch (IdFoundException e) {
-            e.printStackTrace();
-        }
-        return "redirect:/";
-    }
+//    @GetMapping(path = "/add")
+//    public String orderClient(@ModelAttribute("client") Client client) {
+////        model.addAttribute("clients", clientService.getList());
+//        return "/client/add.jsp";
+//    }
+//    @PostMapping(path = "/add")
+//    public String addClient(Client client) {
+//        try {
+//            clientService.add(client);
+//        } catch (IdFoundException e) {
+//            e.printStackTrace();
+//        }
+//        return "redirect:/";
+//    }
 
 
 
