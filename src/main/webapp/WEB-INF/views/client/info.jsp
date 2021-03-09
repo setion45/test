@@ -6,7 +6,7 @@
 <html lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP List Users Records</title>
+    <title>Изменить</title>
 </head>
 <body>
 <form:form method="POST" action="/client/edit" modelAttribute="client">
